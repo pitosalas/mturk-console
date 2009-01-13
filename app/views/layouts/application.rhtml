@@ -1,0 +1,21 @@
+<html>
+<head>
+  <title>MTurk Console</title>
+  <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag 'prototype', 'effects', 'application' %>
+</head>
+<body>
+  <div id="busy" style="display: none;"><img src="/images/busy.gif"/> Processing ...</div>
+  <div>
+  <p class="navbar">
+    <%= link_to 'Qualifications', :controller => 'qualifications' %>
+    &nbsp;<%= link_to 'Requests', :controller => 'requests' %>
+    &nbsp;<%= link_to 'HITs', :controller => 'hits' %>
+    &nbsp;<%= link_to 'Settings', :controller => 'settings' %>
+  </p>
+  </div>
+
+  <%= @content_for_layout %>
+
+</body>
+</html>

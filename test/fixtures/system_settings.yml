@@ -1,0 +1,11 @@
+Host:
+  name: Host
+  value: Sandbox
+
+AWSAccessKeyId:
+  name: AWSAccessKeyId
+  value: 11JQ90M7E14PYZR30782
+
+AWSAccessKey:
+  name: AWSAccessKey
+  value: VAGuNjCzeNEa3/zel/eM2v8uUYsr+31s1TMwEqlb

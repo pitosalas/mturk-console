@@ -1,0 +1,8 @@
+<% q = qualification %>
+<tr id="q_<%= q.id %>">
+  <td class="nam"><%= h q.name %></td>
+  <td class="des"><%= h q.description %></td>
+  <td class="qua"><%= h q.qualificationTypeId %></td>
+	<td class="act"><%= q.qualificationIsActive ? "Yes" : "No" %></td>
+	<td class="com"><%= link_to_remote 'Switch', :url => { :action => 'toggle_active', :id => q.id } unless q.isSystemQualification %></td>
+</tr>

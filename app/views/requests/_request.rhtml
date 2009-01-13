@@ -1,0 +1,6 @@
+<tr>
+	<td class="typ"><%= h request.type_id %></td>
+	<td class="sub"><%= h request.subject_id %></td>
+	<td class="tim"><%= request.submit_time.strftime("%y-%m-%d") %></td>
+	<td class="com"><%= link_to 'Examine', { :action => 'examine', :id => request.id } %></td>
+</tr>

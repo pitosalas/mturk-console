@@ -1,0 +1,2 @@
+page.replace_html 'error', ''
+page.replace_html 'requests_body', render(:partial => 'request', :collection => @requests)

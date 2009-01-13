@@ -1,0 +1,19 @@
+<%= link_to_remote 'Update From AWS', :url => { :action => 'update_from_aws' } %>
+
+<div id="error"></div>
+
+<br/><br/>
+
+<table>
+	<thead>
+		<tr>
+			<td class="typ">Type ID</td>
+			<td class="sub">Worker ID</td>
+			<td class="tim">Submitted On</td>
+			<td class="com"></td>
+		</tr>
+	</thead>
+	<tbody id="requests_body">
+		<%= render :partial => 'request', :collection => @requests %>
+	</tbody>
+</table>

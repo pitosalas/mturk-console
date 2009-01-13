@@ -1,0 +1,26 @@
+<%= start_form_tag :action => 'save' %>
+	<label for="AWSAccessKeyID">AWS Access Key ID:</label><br/>
+	<input type="text" name="AWSAccessKeyID" id="AWSAccessKeyID" value="<%= h SystemSetting['AWSAccessKeyID'].to_s %>"/>
+	
+	<br/><br/>
+	<label for="AWSAccessKey">AWS Access Key:</label><br/>
+	<input type="text" name="AWSAccessKey" id="AWSAccessKey" value="<%= h SystemSetting['AWSAccessKey'].to_s %>"/>
+	
+	<br/><br/>
+	<label for="Host">Host</label><br/>
+	<select name="Host" id="Host">
+		<option value="Sandbox">Sandbox</option>
+		<option value="Production">Production</option>
+	</select>
+	
+	<br/><br/>
+	<label for="ExternalQuestionXML">External Question XML:</label><br/>
+	<textarea name="ExternalQuestionXML" id="ExternalQuestionXML" rows="5"><%= h SystemSetting['ExternalQuestionXML'].to_s %></textarea>
+	
+	<br/><br/>
+	<input type="submit" value="Save"/>
+<%= end_form_tag %>
+
+<script language="JavaScript">
+	document.getElementById('Host').value = '<%= SystemSetting['Host'].to_s %>';
+</script>

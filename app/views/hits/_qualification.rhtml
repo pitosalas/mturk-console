@@ -1,0 +1,19 @@
+<% q, qid = qualification, qualification.qualificationTypeId %>
+<tr>
+	<td><%= h q.name %><br/>(<%= q.qualificationTypeId %>)</td>
+	<td>
+		<select name="qo_<%= qid %>">
+			<option value="" selected="yes">UNUSED</option>
+			<option value="EqualTo">==</option>
+			<option value="NotEqualTo">!=</option>
+		<% if !q.isLocaleValue %>
+			<option value="LessThan">&lt;</option>
+			<option value="LessThanOrEqualTo">&lt;=</option>
+			<option value="GreaterThan">&gt;</option>
+			<option value="GreaterThanOrEqualTo">&gt;=</option>
+			<option value="Exists">Exists</option>
+		<% end %>
+		</select>
+	</td>
+	<td><input type="text" name="qv_<%= qid %>" /></td>
+</tr>

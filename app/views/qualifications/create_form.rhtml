@@ -1,0 +1,64 @@
+<div id="error">
+	<%= error_messages_for 'qualification' %>
+	<%= "Error: #{@error}" if defined? @error %>
+</div>
+
+<%= start_form_tag :action => 'create' %>
+<!--[form:qualification]-->
+<table>
+	<tr>
+		<td>
+			<label for="qualification_name">Name</label><br/>
+			<%= text_field 'qualification', 'name' %>
+		</td>
+		<td>
+			<label for="qualification_keywords">Keywords</label><br/>
+			<%= text_field 'qualification', 'keywords'%>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<label for="qualification_description">Description</label><br/>
+			<%= text_area 'qualification', 'description', :rows => 10 %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<label for="qualification_testXML">Test XML</label><br/>
+			<%= text_area 'qualification', 'testXML', :rows => 10 %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<label for="qualification_answerKeyXML">Answer Key XML</label><br/>
+			<%= text_area 'qualification', 'answerKeyXML', :rows => 10%>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label for="qualification_testDurationInSeconds">Test Duration (sec)</label><br/>
+			<%= text_field 'qualification', 'testDurationInSeconds'%>
+		</td>
+		<td>
+			<label for="qualification_retryDelayInSeconds">Retry Delay (sec)</label><br/>
+			<%= text_field 'qualification', 'retryDelayInSeconds'%>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label for="qualification_autoGranted">Automatically Granted</label><br/>
+			<%= select 'qualification', 'autoGranted', [["Yes", true], ["No", false]] %>
+		</td>
+		<td>
+			<label for="qualification_autoGrantedValue">Automatically Granted Value</label><br/>
+			<%= text_field 'qualification', 'autoGrantedValue', :default => 0%>
+		</td>
+	</tr>
+</table>
+
+<label for="qualification_qualificationIsActive">Active</label><br/>
+<%= select 'qualification', 'qualificationIsActive', [["Yes", true], ["No", false]] %>
+
+<p><%= submit_tag 'Create', :class => 'submit' %>
+<!--[eoform:qualification]-->
+<%= end_form_tag %>

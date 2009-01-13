@@ -1,0 +1,18 @@
+<%= link_to 'Create Qualification Type', :action => 'create_form' %>
+
+<br/><br/>
+
+<table>
+	<thead>
+		<tr>
+			<td class="nam">Name</td>
+			<td class="des">Description</td>
+			<td class="qua">Qualification ID</td>
+			<td class="act">Active</td>
+			<td class="com"></td>
+		</tr>
+	</thead>
+	<tbody>
+	  <%= render :partial => 'qualification', :collection => @qualifications %>
+	</tbody>
+</table>

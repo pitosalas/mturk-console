@@ -1,0 +1,39 @@
+<h1>Examine Qualification Request</h1>
+
+<table id="details">
+	<tr>
+		<td>
+			<label for="d_request">Request</label><br/>
+			<%= h @request.request_id %>
+		</td>
+		<td>
+			<label for="d_worker">Worker</label><br/>
+			<%= h @request.subject_id %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label for="d_type">Type</label><br/>
+			<%= h @request.type_id %>
+		</td>
+		<td>
+			<label for="d_submit_time">Submitted On</label><br/>
+			<%= h @request.submit_time.strftime('%y-%m-%d') %>
+		</td>
+	</tr>
+</table>
+
+<div id="question">
+	<h2>Question:</h2>
+
+	<%= @request.question_html %>
+</div>
+
+<div id="answer">
+	<h2>Answer:</h2>
+
+	<%= @request.answer_html%>
+</div>
+
+<%= link_to 'Approve', { :action => 'approve', :id => @request.id } %>
+<%= link_to 'Reject', { :action => 'reject', :id => @request.id } %>

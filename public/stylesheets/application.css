@@ -1,0 +1,25 @@
+* { font-family: "Trebuchet MS",Verdana,Tahoma,Arial,sans-serif; }
+body, td { font-size: 12px; }
+
+#busy    { float: right; }
+
+tr { vertical-align: top; }
+
+.nam { width: 200px; }
+.des { width: 200px; }
+.qua { width: 100px; }
+.act { width: 50px; }
+
+.hit { width: 100px; }
+.san { width: 50px; text-align: center; }
+
+input { width: 300px; }
+input.submit { width: auto; }
+textarea { width: 600px; }
+
+/* Request examination */
+#question input { width: auto; }
+
+#answer h3 { margin: 0 0 10px 0; }
+#answer .quest { background: #f8f8f8; padding: 5px; }
+#answer .res { margin-left: 20px; background: #f0f0f0; padding: 5px; }

@@ -1,0 +1,22 @@
+<% if defined?(@error) && @error.size > 0 %>
+<div class="error"><%= h @error.join("<br/>") %></div>
+<% end %>
+
+<% if defined? @created %>
+<div class="message">Created <%= @created %> hits</div>
+<% end %>
+
+<%= link_to 'Create HITs', :action => 'create_hits_form' %>
+
+<table>
+	<thead>
+		<tr>
+			<td class="hid">HIT ID</td>
+			<td class="san">Sandbox</td>
+			<td class="blo">Blog URL</td>
+		</tr>
+	</thead>
+	<tbody>
+		<%= render :partial => 'hit', :collection => @hits %>
+	</tbody>
+</table>

@@ -1,0 +1,87 @@
+<div id="error">
+	<%= error_messages_for 'hit' %>
+	<%= "Error: #{@error}" if defined? @error %>
+</div>
+
+<%= start_form_tag :action => 'create_hits' %>
+<!--[form:hit]-->
+<table>
+	<tr>
+		<td>
+			<label for="hit_title">Title</label><br/>
+			<%= text_field 'hit', 'title' %>
+		</td>
+		<td>
+			<label for="hit_keywords">Keywords</label><br/>
+			<%= text_field 'hit', 'keywords' %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<label for="hit_description">Description</label><br/>
+			<%= text_area 'hit', 'description', :rows => 5 %>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<label for="hit_links">Blog URLs</label><br/>
+			<textarea id="hit_links" name="links" rows="5"><%= @links if defined? @links %></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label for="hit_rewardAmount">Reward Amount</label><br/>
+			<%= text_field 'hit', 'rewardAmount'%>
+		</td>
+		<td>
+			<label for="hit_rewardCurrency">Reward Currency</label><br/>
+			<%= select 'hit', 'rewardCurrency', [['USD', 'USD']] %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label for="hit_testDurationInSeconds">Lifetime (sec)</label><br/>
+			<%= text_field 'hit', 'lifetimeInSeconds'%>
+		</td>
+		<td>
+			<label for="hit_autoApprovalDelayInSeconds">Auto-approval Delay (sec)</label><br/>
+			<%= text_field 'hit', 'autoApprovalDelayInSeconds'%>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label for="hit_maxAssignments">Maximum Assignments</label><br/>
+			<%= text_field 'hit', 'maxAssignments'%>
+		</td>
+		<td>
+			<label for="hit_assignmentDurationInSeconds">Assignment Duration (sec)</label><br/>
+			<%= text_field 'hit', 'assignmentDurationInSeconds'%>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%
+				sys_quals = Qualification.find(:all, :conditions => "isSystemQualification = 1")
+				usr_quals = Qualification.find(:all, :conditions => "isSystemQualification = 0 AND qualificationIsActive = 1 AND trim(qualificationTypeId) <> ''")
+			%>
+			<table>
+				<% if sys_quals.size > 0 %>
+					<tr>
+						<td colspan="3"><strong>System Qualifications</strong></td>
+					</tr>
+					<%= render :partial => 'qualification', :collection => sys_quals %>
+				<% end %>
+				<% if usr_quals.size > 0 %>
+					<tr>
+						<td colspan="3"><strong>Active Custom Qualifications</strong></td>
+					</tr>
+					<%= render :partial => 'qualification', :collection => usr_quals %>
+				<% end %>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<p><%= submit_tag 'Create', :class => 'submit' %>
+<!--[eoform:hit]-->
+<%= end_form_tag %>
