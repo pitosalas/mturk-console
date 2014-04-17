@@ -4,7 +4,7 @@ Host:
 
 AWSAccessKeyId:
   name: AWSAccessKeyId
-  value: 11JQ90M7E14PYZR30782
+  value: FOOBAR
 
 AWSAccessKey:
   name: AWSAccessKey
